@@ -3,31 +3,84 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
-
+define l = Character("Lou", who_color="#a38a71", image="lou")
+define m = Character("Morale", who_color="#e6c0a8", image="morale")
 
 # The game starts here.
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    scene bg meadow
 
-    scene bg room
+    "Wow, a lovely day. I'm the narrator. "
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    show lou at center
+    with easeinbottom
 
-    show eileen happy
+    l "Howdy there! I'm Lou! The best owl husband"
 
-    # These display lines of dialogue.
+    show lou sad at center
 
-    e "You've created a new Ren'Py game."
+    l "Holy shit I wish I had a cool wife"
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    show lou at right
+    with ease
 
-    # This ends the game.
+    pause 0.2
 
-    return
+    show morale at left
+    with easeinleft
+
+    m "Well would you look at that, a fuckin' owl"
+    pause 1.0
+
+    show morale inquisitive
+    m "Hey, what are you all about?"
+
+    pause 0.2
+    m "..."
+    pause 1.0
+
+    show morale blush
+    m "You're some hot shit, gamer boi"
+    show morale inquisitive
+    m "Looking to have a nice, friendly date? Maybe with flowers?"
+
+    menu: 
+        "Woah. Oh hellyeah":
+            jump hellyeah
+        
+        "Oh... well, fuckin' absolutely let's do it":
+            jump wellfuckinabsolutelyletsdoit
+
+label hellyeah:
+    l "..."
+    pause 1.0
+    
+    show lou blush
+    l "...ye ://3"
+
+    show morale sunglasses
+    m "... Nice B)"
+    jump date
+
+label wellfuckinabsolutelyletsdoit:
+    l "..."
+    pause 0.5
+    l "..."
+    pause 1.0
+    l "FUCK YES LET'S DO IT GAMER ABSOLUTELY"
+
+    show morale letsfuckinggo
+    m "LET'S FUCKING GOOO"
+    jump date
+
+label date:
+
+    hide lou
+    with easeoutright
+
+    hide morale
+    with easeoutleft
+
+    "And then they had a date :)"
